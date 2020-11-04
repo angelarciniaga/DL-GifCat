@@ -27,17 +27,17 @@
             <option value="yellow">Amarillo</option>
             <option value="grey">Gris</option>
             <option value="pink">Rosado</option>
-          </select>
-            <span class="selecColor" :style="{backgroundColor: this.color}"></span>
+          </select><span class="selecColor" :style="{backgroundColor: this.color}"></span>
+            
         </div>
         <div>
           <label for="">Tamaño: </label>
           <input type="number" v-model="tamaño">
         </div>
-        <button type="submit">Obtener Gif</button>
       </form>
     </div>
     <div class="gif">
+      <button type="submit">Obtener Gif</button>
       <img src="imagen" alt="">
     </div>
   </div>
@@ -88,6 +88,7 @@ h1 {
   text-align: center;
   padding-top: 50px;
   padding-bottom: 50px;
+  margin: 0;
 }
 form {
   display: block;
@@ -96,8 +97,8 @@ form {
   padding: 50px;
 }
 .selecColor {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   margin-left: 15px;
   display: inline-block;
@@ -112,7 +113,7 @@ select {
   padding-top: 50px;
   padding-bottom: 200px;
 }
-button{
-  margin-top: 10px;
-}
+/* button{
+  margin-top: 5px;
+} */
 </style>
