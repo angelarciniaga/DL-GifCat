@@ -4,11 +4,11 @@
     <div>
       <form @submit.prevent='obtenerGif'>
         <div>
-          <label for="">Titulo: </label>
+          <label>Titulo: </label>
           <input type="text" v-model="titulo">
         </div>
         <div>
-          <label for="">Filtro: </label>
+          <label>Filtro: </label>
           <select v-model="filtro">
             <option>Blur</option>
             <option>Mono</option>
@@ -19,7 +19,7 @@
           </select>
         </div>
         <div>
-          <label for="">Color: </label>
+          <label>Color: </label>
           <select v-model="color">
             <option value="blue">Azul</option>
             <option value="green">Verde</option>
@@ -34,11 +34,11 @@
           <label for="">Tamaño: </label>
           <input type="number" v-model="tamaño">
         </div>
+        <button type="submit">Obtener Gif</button>
       </form>
     </div>
     <div class="gif">
-      <button type="submit">Obtener Gif</button>
-      <img src="imagen" alt="">
+      <img :src="this.imagen" alt="">
     </div>
   </div>
 </template>
@@ -49,7 +49,7 @@ export default {
   data() {
     return {
       titulo: '',
-      filto: '',
+      filtro: '',
       color: '',
       tamaño: '',
       imagen: ''
@@ -60,6 +60,7 @@ export default {
       if(this.titulo && this.filtro && this.color && this.color && this.tamaño) {
         fetch(`https://cataas.com/cat/gif/says/${this.titulo}?filter=${this.filtro}&color=${this.color}&size=${this.tamaño}&type=or`)
         .then(result =>{
+          console.log(result);
           this.imagen = result.url
         })
       }
@@ -68,6 +69,7 @@ export default {
       if(this.titulo && this.filtro && this.color && this.color && this.tamaño) {
         fetch(`https://cataas.com/cat/gif/says/${this.titulo}?filter=${this.filtro}&color=${this.color}&size=${this.tamaño}&type=or`)
         .then(result =>{
+          console.log(result)
           this.imagen = result.url
         })
         .catch(error => console.log(error))
@@ -113,7 +115,7 @@ select {
   padding-top: 50px;
   padding-bottom: 200px;
 }
-/* button{
+button{
   margin-top: 5px;
-} */
+}
 </style>
